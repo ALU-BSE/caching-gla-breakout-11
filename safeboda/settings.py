@@ -86,6 +86,20 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',  # Fill this
+        'LOCATION': 'redis://127.0.0.1:6379',  # Fill this (Redis URL)
+        'TIMEOUT': 300,  # Default timeout in seconds
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',  # Fill this
+        }
+    }
+}
+
+# Add cache timeout setting
+CACHE_TTL = 300  # How many seconds?
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
